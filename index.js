@@ -5,8 +5,10 @@ const search = 'История';
 
 
 
-//Фильтр по годам издания
-const newCent = catalog.filter(book=>book.year > 1900 && book.year < 2000);
+//Фильтр по годам издания ИЗМЕНЕНО
+let firstYear = century * 100 - 100
+let lastYear = century * 100
+const newCent = catalog.filter(book=>book.year > firstYear && book.year < lastYear);
     console.log(newCent);
 
 
@@ -14,7 +16,7 @@ const newCent = catalog.filter(book=>book.year > 1900 && book.year < 2000);
     function filterBySearch(books, search) {
     let result = [];
     for (const book of books) {
-        if ((book.title.startsWith(search)) || (book.title.endsWith("история")) || (book.title.endsWith("истории")) || (book.author.startsWith(search))) {
+        if ((book.title.startsWith(search)) || (book.title.endsWith(search)) || (book.author.startsWith(search))) {
             result.push(book)
         }
         
